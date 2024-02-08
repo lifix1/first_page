@@ -22,5 +22,10 @@ def prom():
             '<p>Присоединяйся!</p><br>')
 
 
+@app.route('/image_mars')
+def mars():
+    return render_template('mars.html')
+
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080)
