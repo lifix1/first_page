@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Отбор астронавтов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <form method="post" class="col-lg-6 offset-lg-3">
+        <div class="row justify-content-center">
+            <div>
+                <label for="surname">Фамилия</label>
+                <input type="text" id="surname" name="surname">
+            </div>
+            <div>
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div>
+                <label for="educ">Образование</label>
+                <select id="educ" name="educ">
+                    <option>Начальное</option>
+                    <option>Среднее</option>
+                    <option>Средне-специальное</option>
+                    <option>Высшее</option>
+                </select>
+            </div>
+            <div>
+                <label for="prof">Профессия</label>
+                <select id="prof" name="prof">
+                    <option>Учитель русского</option>
+                    <option>Учитель математики</option>
+                    <option>Учитель информатики</option>
+                    <option>Учитель физкультуры</option>
+                    <option>Учитель физики</option>
+                </select>
+            </div>
+            <div>
+                <label for="gender">Пол</label>
+                <select id="gender" name="gender">
+                    <option>М</option>
+                    <option>Ж</option>
+                </select>
+            </div>
+            <div>
+                <label for="motiv">Почему вы хотите остаться на марсе?</label>
+                <textarea id="motiv" name="motiv"></textarea>
+            </div>
+            <div>
+                <label for="stay_on_mars">Хотите ли вы остаться на марсе?</label>
+                <input type="checkbox" id="stay_on_mars" name="stay_on_mars">
+            </div>
+            <button type="submit">Отправить</button>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
