@@ -22,9 +22,10 @@ def prom():
             '<p>Присоединяйся!</p><br>')
 
 
-@app.route('/image_mars')
+@app.route('/promotion_image')
 def mars():
     return render_template('mars.html')
+
 
 
 if __name__ == '__main__':
