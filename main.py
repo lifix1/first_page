@@ -1,46 +1,41 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
-@app.route('/')
-def index():
-    return 'Миссия Колонизация Марса'
+class AnswerForm(FlaskForm):
+    name = StringField('name', validators=[DataRequired()])
+    surname = StringField('surname', validators=[DataRequired()])
+    email = StringField('email', validators=[DataRequired()])
+    educ = StringField('educ', validators=[DataRequired()])
+    prof = StringField('prof', validators=[DataRequired()])
+    gender = StringField('gender', validators=[DataRequired()])
+    motiv = StringField('motiv', validators=[DataRequired()])
+    stay_on_mars = StringField('stay_on_mars', validators=[DataRequired()])
+    submit = SubmitField('submit')
 
 
-@app.route('/index')
-def index_1():
-    return 'И на Марсе будут яблони цвести!'
+@app.route('/answer', methods=['GET', 'POST'])
+def answer():
+    form = AnswerForm()
+    if form.validate_on_submit():
+        return render_template('auto_answer.html', form=form)
+    return render_template('answer.html', form=form)
 
 
-@app.route('/promotion')
-def prom():
-    return ('<p>Человечество вырастает из детства.</p><br>'
-            '<p>Человечеству мала одна планета.</p><br>'
-            '<p>Мы сделаем обитаемыми безжизненные пока планеты.</p><br>'
-            '<p>И начнем с Марса!</p><br>'
-            '<p>Присоединяйся!</p><br>')
+@app.route('/auto_answer', methods=['GET', 'POST'])
+def auto_answer():
+    form = AnswerForm()
+    if form.validate_on_submit():
+        return render_template('auto_answer.html', form=form)
+    return render_template('answer.html', form=form)
 
 
-@app.route('/promotion_image')
-def mars():
-    return render_template('mars.html')
-
-
-@app.route('/astronaut_selection', methods=['GET', 'POST'])
-def astronaut_selection():
-    if request.method == 'GET':
-        return render_template('form.html')
-    elif request.method == 'POST':
-        print(request.form['surname'])
-        print(request.form['name'])
-        print(request.form['email'])
-        print(request.form['educ'])
-        print(request.form['prof'])
-        print(request.form['gender'])
-        print(request.form['motiv'])
-        print('Да') if request.form['stay_on_mars'] == 'on' else print('Нет')
-        return render_template('form.html')
+@app.route('/index/<user_input>')
+def index(user_input):
+    params = {}
+    params['Title'] = user_input
+    return render_template('base.html', **params)
 
 
 if __name__ == '__main__':
