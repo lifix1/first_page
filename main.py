@@ -4,15 +4,14 @@ app = Flask(__name__)
 
 
 class AnswerForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired()])
-    surname = StringField('surname', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired()])
-    educ = StringField('educ', validators=[DataRequired()])
-    prof = StringField('prof', validators=[DataRequired()])
-    gender = StringField('gender', validators=[DataRequired()])
-    motiv = StringField('motiv', validators=[DataRequired()])
-    stay_on_mars = StringField('stay_on_mars', validators=[DataRequired()])
-    submit = SubmitField('submit')
+    name = StringField('Имя', validators=[DataRequired()])
+    surname = StringField('Фамилия', validators=[DataRequired()])
+    educ = StringField('Образование', validators=[DataRequired()])
+    prof = StringField('Профессия', validators=[DataRequired()])
+    gender = StringField('Пол', validators=[DataRequired()])
+    motiv = StringField('Мотивация', validators=[DataRequired()])
+    stay_on_mars = StringField('Готовы ли вы остаться на марсе?', validators=[DataRequired()])
+    submit = SubmitField('Отправить')
 
 
 @app.route('/answer', methods=['GET', 'POST'])
